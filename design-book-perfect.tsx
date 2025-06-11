@@ -667,85 +667,120 @@ export default function DesignBookPerfect() {
 
   // Perfect Liquid Glass Design with advanced effects
   const LiquidGlassDesign = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Very subtle background elements */}
       {isClient && (
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse"></div>
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-tl from-purple-400/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-32 left-32 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-40 right-40 w-80 h-80 bg-indigo-100/20 rounded-full blur-3xl"></div>
         </div>
       )}
 
-      <div className="relative z-10 p-8 sm:p-12">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative z-10 p-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-5xl sm:text-6xl font-light text-white mb-6 drop-shadow-2xl">
-              Liquid Glass
-            </h1>
-            <p className="text-xl text-white/80 mb-2">Apple's Revolutionary Interface Language</p>
-            <p className="text-base text-white/60">2025-Present • Speculative Future Design</p>
+            <h1 className="text-6xl font-light text-gray-700 mb-6">Liquid Glass</h1>
+            <p className="text-2xl text-gray-500 font-light">Apple's Spatial Interface Language</p>
+            <p className="text-lg text-gray-400">2025 - Present</p>
           </div>
 
-          <div className="max-w-md mx-auto mb-12">
-            <div className="bg-black/80 rounded-[3rem] p-3 shadow-2xl backdrop-blur-xl border border-white/10">
-              <div className="bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-[2.5rem] p-4 backdrop-blur-3xl border border-white/10">
-                <div className="flex justify-between items-center text-white text-sm mb-6">
-                  <div className="font-medium">9:41</div>
-                  <div className="w-24 h-6 bg-black rounded-full"></div>
-                  <div className="flex items-center gap-1">
-                    <Signal className="w-4 h-4" />
-                    <Wifi className="w-4 h-4" />
-                    <Battery className="w-4 h-4" />
+          {/* Main Interface Mockup - Much More Subtle */}
+          <div className="bg-white/20 rounded-3xl p-8 mb-8" style={{ backdropFilter: 'blur(8px)' }}>
+            <div className="flex justify-between items-center mb-8">
+              <div className="text-4xl font-light text-gray-700">9:41</div>
+              <div className="text-xl text-gray-500">Tue Apr 1</div>
+            </div>
+
+            {/* Widget Grid - Extremely Subtle */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+              {/* Weather Widget */}
+              <div className="col-span-2 bg-white/30 rounded-2xl p-6 hover:bg-white/40 transition-all duration-300" style={{ backdropFilter: 'blur(4px)' }}>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="text-sm text-gray-500">San Francisco</div>
+                    <div className="text-3xl font-light text-gray-700">72°</div>
+                  </div>
+                  <div className="w-12 h-12 bg-yellow-200/50 rounded-full flex items-center justify-center">
+                    <Sun className="w-6 h-6 text-yellow-600" />
                   </div>
                 </div>
+                <div className="text-sm text-gray-500">Partly Cloudy</div>
+                <div className="text-xs text-gray-400 mt-1">H:76° L:65°</div>
+              </div>
 
-                <div className="grid grid-cols-4 gap-4 mb-8">
-                  {[
-                    { icon: Phone, name: "Phone", color: "from-green-400/30 to-emerald-500/30" },
-                    { icon: Mail, name: "Mail", color: "from-blue-400/30 to-cyan-500/30" },
-                    { icon: Calendar, name: "Calendar", color: "from-red-400/30 to-pink-500/30" },
-                    { icon: Settings, name: "Settings", color: "from-gray-400/30 to-slate-500/30" },
-                    { icon: Camera, name: "Camera", color: "from-yellow-400/30 to-orange-500/30" },
-                    { icon: Music, name: "Music", color: "from-purple-400/30 to-violet-500/30" },
-                    { icon: MessageCircle, name: "Messages", color: "from-teal-400/30 to-cyan-500/30" },
-                    { icon: ShoppingCart, name: "Store", color: "from-indigo-400/30 to-blue-500/30" },
-                  ].map((app, i) => (
-                    <div key={i} className="text-center">
-                      <div className={`w-14 h-14 bg-gradient-to-br ${app.color} backdrop-blur-2xl border border-white/20 rounded-2xl flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300`}>
-                        <app.icon className="w-7 h-7 text-white drop-shadow-lg" />
-                      </div>
-                      <div className="text-white text-xs mt-2 drop-shadow-sm">{app.name}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-3xl border border-white/20 rounded-3xl p-4 shadow-2xl">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Headphones className="w-5 h-5 text-white/80" />
-                    <div className="text-white font-medium">Now Playing</div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Volume2 className="w-4 h-4 text-white/80" />
-                    <div className="flex-1 bg-white/20 rounded-full h-3 shadow-inner backdrop-blur-sm overflow-hidden">
-                      <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-full w-2/3 rounded-full shadow-lg animate-pulse"></div>
-                    </div>
-                  </div>
+              {/* Calendar Widget */}
+              <div className="bg-white/25 rounded-2xl p-4 hover:bg-white/35 transition-all duration-300" style={{ backdropFilter: 'blur(4px)' }}>
+                <div className="text-center">
+                  <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">April</div>
+                  <div className="text-3xl font-light text-gray-700 mb-2">1</div>
+                  <div className="text-xs text-gray-500">Tuesday</div>
                 </div>
               </div>
+
+              {/* Photos Widget */}
+              <div className="bg-white/20 rounded-2xl p-4 hover:bg-white/30 transition-all duration-300" style={{ backdropFilter: 'blur(4px)' }}>
+                <div className="w-full h-16 bg-purple-100/40 rounded-xl mb-2 flex items-center justify-center">
+                  <Camera className="w-6 h-6 text-gray-500" />
+                </div>
+                <div className="text-xs text-gray-500 text-center">Photos</div>
+              </div>
             </div>
+
+                         {/* App Icons - Extremely Soft */}
+             <div className="grid grid-cols-4 gap-6">
+               {[
+                 { icon: Phone, label: "Phone", bg: "bg-green-100/60" },
+                 { icon: Mail, label: "Mail", bg: "bg-blue-100/60" },
+                 { icon: Music, label: "Music", bg: "bg-pink-100/60" },
+                 { icon: Camera, label: "Camera", bg: "bg-gray-100/60" },
+               ].map((app, i) => (
+                 <div key={i} className="text-center">
+                   <div className={`w-16 h-16 ${app.bg} rounded-2xl mx-auto mb-2 flex items-center justify-center hover:scale-105 transition-transform duration-200`} style={{ backdropFilter: 'blur(2px)' }}>
+                     <app.icon className="w-8 h-8 text-gray-600" />
+                   </div>
+                   <div className="text-xs text-gray-500">{app.label}</div>
+                 </div>
+               ))}
+             </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-white/60 text-lg mb-4">
-              Dynamic refraction • Sensory computing • Liquid motion
-            </p>
-            <div className="flex justify-center gap-4">
-              <Badge className="bg-white/10 backdrop-blur-xl text-white border border-white/20">
-                Real-time Rendering
-              </Badge>
-              <Badge className="bg-white/10 backdrop-blur-xl text-white border border-white/20">
-                Spatial Computing
-              </Badge>
+          {/* Technical Principles */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8">
+              <h3 className="text-2xl font-light text-gray-700 mb-6">Design Principles</h3>
+              <div className="space-y-4">
+                {[
+                  "Ultra-subtle transparency layers",
+                  "Seamless wallpaper integration", 
+                  "Refined blur effects",
+                  "Spatial depth perception",
+                  "Organic glass behavior"
+                ].map((principle, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-400/40 rounded-full"></div>
+                    <span className="text-gray-600">{principle}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8">
+              <h3 className="text-2xl font-light text-gray-700 mb-6">Technical Innovation</h3>
+              <div className="space-y-4">
+                <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+                  <h4 className="font-medium text-gray-700 mb-2">Adaptive Transparency</h4>
+                  <p className="text-sm text-gray-600">Elements adjust opacity based on content beneath</p>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+                  <h4 className="font-medium text-gray-700 mb-2">Contextual Blur</h4>
+                  <p className="text-sm text-gray-600">Blur intensity varies with background complexity</p>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+                  <h4 className="font-medium text-gray-700 mb-2">Liquid Physics</h4>
+                  <p className="text-sm text-gray-600">Natural, fluid response to user interaction</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
