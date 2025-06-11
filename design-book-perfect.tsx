@@ -444,12 +444,7 @@ export default function DesignBookPerfect() {
   const [currentPage, setCurrentPage] = useState(0)
   const [showTableOfContents, setShowTableOfContents] = useState(false)
   const [bookmarkPage, setBookmarkPage] = useState<number | null>(null)
-  const [isClient, setIsClient] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   const totalPages = bookPages.length
 
@@ -477,14 +472,12 @@ export default function DesignBookPerfect() {
   // Perfect Cover Page with stunning design
   const CoverPage = () => (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative overflow-hidden">
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse"></div>
-          <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-tl from-purple-400/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-yellow-400/10 to-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-        </div>
-      )}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-tl from-purple-400/20 to-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-yellow-400/10 to-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+      </div>
 
       <div className="relative z-10 container mx-auto px-4 py-8 sm:py-16 flex items-center justify-center min-h-screen">
         <div className="max-w-6xl w-full text-center">
@@ -687,12 +680,10 @@ export default function DesignBookPerfect() {
   const LiquidGlassDesign = () => (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Very subtle background elements */}
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute top-32 left-32 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-40 right-40 w-80 h-80 bg-indigo-100/20 rounded-full blur-3xl"></div>
-        </div>
-      )}
+      <div className="absolute inset-0">
+        <div className="absolute top-32 left-32 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-40 w-80 h-80 bg-indigo-100/20 rounded-full blur-3xl"></div>
+      </div>
 
       <div className="relative z-10 p-8">
         <div className="max-w-6xl mx-auto">
@@ -823,13 +814,9 @@ export default function DesignBookPerfect() {
   const FrutigerAeroDesign = () => (
     <div className="min-h-screen relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-sky-300 via-emerald-200 to-blue-400">
-        {isClient && (
-          <>
-            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-cyan-300/30 to-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-emerald-300/40 to-teal-400/30 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-lime-300/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
-          </>
-        )}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-cyan-300/30 to-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-emerald-300/40 to-teal-400/30 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-lime-300/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
       </div>
 
       <div className="relative z-10 p-8 sm:p-12">
@@ -1175,12 +1162,10 @@ export default function DesignBookPerfect() {
   // Vaporwave Design
   const VaporwaveDesign = () => (
     <div className="min-h-screen bg-gradient-to-b from-purple-900 via-pink-900 to-blue-900 relative overflow-hidden">
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-cyan-500/30 to-transparent"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border-2 border-pink-500/50 rounded-full animate-pulse"></div>
-        </div>
-      )}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-cyan-500/30 to-transparent"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border-2 border-pink-500/50 rounded-full animate-pulse"></div>
+      </div>
       
       <div className="relative z-10 p-8 sm:p-12">
         <div className="max-w-6xl mx-auto text-center">
@@ -1880,13 +1865,11 @@ export default function DesignBookPerfect() {
   // Glassmorphism Design  
   const GlassmorphismDesign = () => (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute top-16 left-16 w-48 h-48 bg-white/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-16 right-16 w-64 h-64 bg-blue-500/30 rounded-full blur-2xl animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
-        </div>
-      )}
+      <div className="absolute inset-0">
+        <div className="absolute top-16 left-16 w-48 h-48 bg-white/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-16 right-16 w-64 h-64 bg-blue-500/30 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
+      </div>
 
       <div className="relative z-10 p-8">
         <div className="max-w-6xl mx-auto">
@@ -2048,15 +2031,6 @@ export default function DesignBookPerfect() {
   // Y2K Design
   const Y2KDesign = () => (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black overflow-hidden relative">
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-ping"></div>
-          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-lime-400 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-3/4 w-1.5 h-1.5 bg-pink-400 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 right-1/2 w-0.5 h-0.5 bg-yellow-400 rounded-full animate-ping"></div>
-        </div>
-      )}
-
       <div className="relative z-10 p-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -2135,23 +2109,6 @@ export default function DesignBookPerfect() {
     <div className="min-h-screen bg-black text-cyan-400 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-black opacity-80"></div>
       
-      {isClient && (
-        <div className="absolute inset-0">
-          {Array.from({length: 20}).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-px bg-cyan-400/30"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                height: `${Math.random() * 100 + 50}px`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            ></div>
-          ))}
-        </div>
-      )}
-
       <div className="relative z-10 p-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -2256,14 +2213,6 @@ export default function DesignBookPerfect() {
   const ExperimentalDesign = () => (
     <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-800 to-fuchsia-900 text-white overflow-hidden relative">
       {/* Animated background elements */}
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-pink-500/30 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-cyan-500/30 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-r from-yellow-500/20 to-pink-500/30 rounded-full blur-2xl animate-pulse"></div>
-        </div>
-      )}
-
       <div className="relative z-10 p-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -2401,14 +2350,6 @@ export default function DesignBookPerfect() {
   // Quantum UI Design - Original Morphing Interface Design
   const QuantumUIDesign = () => (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 overflow-hidden relative">
-      {isClient && (
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full opacity-20 animate-spin"></div>
-          <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-500 rounded-square opacity-30 animate-bounce"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 transform rotate-45 opacity-25 animate-pulse"></div>
-        </div>
-      )}
-
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-cyan-400 mb-4 transform hover:scale-110 transition-transform">
@@ -2575,22 +2516,12 @@ export default function DesignBookPerfect() {
             return <ExperimentalDesign />
           case "Quantum UI":
             return <QuantumUIDesign />
-          case "Liquid Glass":
-            return <LiquidGlassDesign />
           default:
             return <GenericStylePage style={pageData.style || "Design Movement"} period={pageData.period || "Period"} />
         }
       default:
         return <CoverPage />
     }
-  }
-
-  if (!isClient) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 flex items-center justify-center">
-        <div className="text-white text-2xl font-light">Loading Perfect Design Experience...</div>
-      </div>
-    )
   }
 
   return (
