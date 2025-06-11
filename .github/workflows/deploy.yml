@@ -45,11 +45,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
             
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
-          
       - name: Restore cache
         uses: actions/cache@v3
         with:
