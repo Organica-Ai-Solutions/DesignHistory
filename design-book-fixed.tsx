@@ -294,7 +294,7 @@ const styleData = {
 export default function DesignBookFixed() {
   const [currentPage, setCurrentPage] = useState(0)
   const [showTableOfContents, setShowTableOfContents] = useState(false)
-  const [bookmarkPage, setBookmarkPage] = useState(null)
+  const [bookmarkPage, setBookmarkPage] = useState<number | null>(null)
 
   const totalPages = bookPages.length
 
