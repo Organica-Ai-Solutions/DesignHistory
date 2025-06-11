@@ -68,6 +68,7 @@ import {
   Coffee,
   Gamepad,
   Terminal,
+  Info,
 } from "lucide-react"
 
 // Complete book structure with ALL design movements
@@ -124,6 +125,8 @@ const bookPages = [
   { id: "experimental-divider", type: "chapter-divider", chapter: "Experimental & Future", subtitle: "2020s - Future", description: "Cutting-edge and speculative design concepts" },
   { id: "experimental-history", type: "history", style: "Experimental Design", period: "2020s-Present", icon: Beaker },
   { id: "experimental-design", type: "style", style: "Experimental Design", period: "2020s-Present", icon: Beaker },
+  { id: "quantum-history", type: "history", style: "Quantum UI", period: "2023-Present", icon: Zap },
+  { id: "quantum-design", type: "style", style: "Quantum UI", period: "2023-Present", icon: Zap },
   { id: "liquidglass-history", type: "history", style: "Liquid Glass", period: "2025-Present", icon: Smartphone },
   { id: "liquidglass-design", type: "style", style: "Liquid Glass", period: "2025-Present", icon: Smartphone },
 
@@ -404,6 +407,21 @@ const historyData = {
     notableWorks: ["Generative art projects", "AR/VR interfaces", "AI-assisted design"],
     legacy: "Represents the cutting edge of design practice and future possibilities.",
   },
+  "Quantum UI": {
+    founders: ["Organica AI Solutions", "AI-assisted designers", "Quantum computing researchers"],
+    location: "Global (Research labs and tech companies)",
+    keyEvents: [
+      { year: "2023", event: "First quantum-inspired UI patterns emerge" },
+      { year: "2024", event: "AI-generated morphing interfaces gain popularity" },
+      { year: "2024", event: "Neural interface prototypes influence UI design" },
+      { year: "2025", event: "Quantum UI principles adopted by major platforms" },
+    ],
+    philosophy: "Interfaces that exist in multiple states simultaneously, morphing based on context and user intent.",
+    context: "Advances in quantum computing and AI create new paradigms for thinking about interface states and transitions.",
+    impact: "Introduced concepts of probabilistic interfaces and reality-shifting UI elements.",
+    notableWorks: ["Morphing interface systems", "AI-generated art integration", "Quantum state UI elements"],
+    legacy: "Paving the way for neural interfaces and quantum-inspired interaction design.",
+  },
   "Liquid Glass": {
     founders: ["Apple Design Team", "Craig Federighi", "Human Interface Team"],
     location: "Cupertino, California",
@@ -509,7 +527,7 @@ export default function DesignBookPerfect() {
               <Eye className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-purple-400 mx-auto mb-3 drop-shadow-lg" />
               <div className="text-white text-sm sm:text-base lg:text-lg font-semibold mb-1">Future</div>
               <div className="text-white/60 text-xs sm:text-sm">2020s+</div>
-              <div className="text-white/40 text-xs mt-1">6 Movements</div>
+              <div className="text-white/40 text-xs mt-1">7 Movements</div>
             </div>
           </div>
 
@@ -524,7 +542,7 @@ export default function DesignBookPerfect() {
             </div>
             <div className="flex items-center gap-3">
               <Sparkles className="w-5 h-5 lg:w-6 lg:h-6" />
-              <span>18 Design Movements</span>
+              <span>20 Design Movements</span>
             </div>
           </div>
 
@@ -581,7 +599,7 @@ export default function DesignBookPerfect() {
               chapter: "Experimental & Future", 
               subtitle: "2020s - Future", 
               description: "Cutting-edge and speculative design concepts",
-              movements: ["Experimental Design", "Liquid Glass"]
+              movements: ["Experimental Design", "Quantum UI", "Liquid Glass"]
             },
           ].map((chapter, index) => (
             <Card key={index} className="p-6 hover:shadow-xl transition-shadow duration-300 cursor-pointer">
@@ -779,6 +797,19 @@ export default function DesignBookPerfect() {
                 <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
                   <h4 className="font-medium text-gray-700 mb-2">Liquid Physics</h4>
                   <p className="text-sm text-gray-600">Natural, fluid response to user interaction</p>
+                </div>
+                
+                {/* Technical Note */}
+                <div className="bg-amber-50/50 border border-amber-200/30 rounded-2xl p-4 mt-6">
+                  <h4 className="font-medium text-amber-800 mb-2 flex items-center gap-2">
+                    <Info className="w-4 h-4" />
+                    Native vs Web Implementation
+                  </h4>
+                  <p className="text-xs text-amber-700 leading-relaxed">
+                    Apple's native Liquid Glass uses Swift/UIKit with direct GPU access via Metal API. 
+                    Web implementations using CSS backdrop-filter are limited by browser rendering engines 
+                    and cannot achieve the same level of system integration and performance as native iOS apps.
+                  </p>
                 </div>
               </div>
             </div>
@@ -1225,51 +1256,121 @@ export default function DesignBookPerfect() {
     </div>
   )
 
-  // History Page Template
-  const HistoryPage = ({ style, period }: { style: string, period: string }) => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-gray-200 p-8 sm:p-12">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4">{style} History</h1>
-          <p className="text-xl text-gray-600">{period}</p>
+  // History Page Template - Now using actual historical data
+  const HistoryPage = ({ style, period }: { style: string, period: string }) => {
+    const history = historyData[style as keyof typeof historyData]
+    
+    if (!history) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-100 to-gray-200 p-8 sm:p-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-bold text-gray-800 mb-4">{style} History</h1>
+              <p className="text-xl text-gray-600">{period}</p>
+              <p className="text-red-600 mt-4">Historical data not found for this movement.</p>
+            </div>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Origins & Context</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Understanding the historical context and cultural forces that gave rise to this design movement 
-              provides crucial insight into its principles and lasting impact on design practice.
-            </p>
-          </Card>
+      )
+    }
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-100 to-gray-200 p-8 sm:p-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold text-gray-800 mb-4">{style} History</h1>
+            <p className="text-xl text-gray-600 mb-6">{period}</p>
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {history.philosophy}
+              </p>
+            </div>
+          </div>
           
-          <Card className="p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Key Figures</h3>
-            <p className="text-gray-600 leading-relaxed">
-              The pioneers and practitioners who shaped this movement through their innovative work, 
-              theoretical contributions, and influential projects that defined the aesthetic.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <Users className="w-6 h-6 mr-2 text-blue-600" />
+                Key Figures & Location
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold text-gray-700 mb-2">Founders & Leaders:</h4>
+                  <ul className="text-gray-600 space-y-1">
+                    {history.founders.map((founder: string, i: number) => (
+                      <li key={i}>• {founder}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-700 mb-2">Origin:</h4>
+                  <p className="text-gray-600">{history.location}</p>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-6 bg-white/80 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <Clock className="w-6 h-6 mr-2 text-green-600" />
+                Historical Context
+              </h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                {history.context}
+              </p>
+              <div>
+                <h4 className="font-semibold text-gray-700 mb-2">Cultural Impact:</h4>
+                <p className="text-gray-600 leading-relaxed">
+                  {history.impact}
+                </p>
+              </div>
+            </Card>
+          </div>
+
+          <Card className="p-8 bg-white/80 backdrop-blur-sm mb-8">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+              <Star className="w-7 h-7 mr-3 text-yellow-600" />
+              Key Historical Events
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {history.keyEvents.map((event: any, i: number) => (
+                <div key={i} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 border border-gray-200">
+                  <div className="text-2xl font-bold text-blue-600 mb-2">{event.year}</div>
+                  <p className="text-gray-700 text-sm leading-relaxed">{event.event}</p>
+                </div>
+              ))}
+            </div>
           </Card>
-          
-          <Card className="p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Philosophy</h3>
-            <p className="text-gray-600 leading-relaxed">
-              The underlying principles and beliefs that guided designers in this movement, 
-              reflecting broader cultural values and technological possibilities of the era.
-            </p>
-          </Card>
-          
-          <Card className="p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Legacy</h3>
-            <p className="text-gray-600 leading-relaxed">
-              How this movement continues to influence contemporary design practice and thinking, 
-              from direct stylistic references to fundamental design principles.
-            </p>
-          </Card>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <Award className="w-6 h-6 mr-2 text-purple-600" />
+                Notable Works
+              </h3>
+              <ul className="text-gray-600 space-y-2">
+                {history.notableWorks.map((work: string, i: number) => (
+                  <li key={i} className="flex items-start">
+                    <span className="text-purple-600 mr-2">•</span>
+                    <span>{work}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+            
+            <Card className="p-6 bg-white/80 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <TrendingUp className="w-6 h-6 mr-2 text-green-600" />
+                Legacy & Influence
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {history.legacy}
+              </p>
+            </Card>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   // Conclusion Page
   const ConclusionPage = () => (
@@ -2151,8 +2252,154 @@ export default function DesignBookPerfect() {
     </div>
   )
 
-  // Experimental Design
+  // Experimental Design - Advanced Fluid Interface
   const ExperimentalDesign = () => (
+    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-800 to-fuchsia-900 text-white overflow-hidden relative">
+      {/* Animated background elements */}
+      {isClient && (
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-pink-500/30 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-cyan-500/30 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-r from-yellow-500/20 to-pink-500/30 rounded-full blur-2xl animate-pulse"></div>
+        </div>
+      )}
+
+      <div className="relative z-10 p-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="mb-6 inline-block">
+              <span className="px-4 py-1 rounded-full text-sm bg-white/10 backdrop-blur-sm border border-white/20">
+                Reimagining Digital Experiences
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300">
+                Break Free From
+              </span>{" "}
+              <br />
+              <span className="text-white relative inline-block">
+                Conventional Design
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl mb-6 text-white/80 max-w-2xl mx-auto">
+              Explore a new dimension of interactive experiences where boundaries dissolve and creativity flows without limits.
+            </p>
+            
+            <div className="mt-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 inline-block">
+              <p className="text-sm text-white/80 font-medium">Created by <span className="text-yellow-400 font-bold">Organica AI Solutions</span></p>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Button className="px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium shadow-lg shadow-pink-500/20 transform hover:scale-105 transition-all">
+              <Sparkles className="mr-2 w-5 h-5" />
+              Start Exploring
+              <ChevronRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 transition-all transform hover:scale-105">
+              <Gamepad2 className="mr-2 w-5 h-5" />
+              Interactive Demo
+            </Button>
+          </div>
+
+          {/* Floating Cards with 3D Effect */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[
+              { title: "Fluid Motion", desc: "Dynamic morphing elements that change shape", icon: "⚡", gradient: "from-pink-500/30 to-purple-500/30" },
+              { title: "Depth Perception", desc: "Layered cards with sophisticated depth effects", icon: "🌊", gradient: "from-purple-500/30 to-blue-500/30" },
+              { title: "Spatial Design", desc: "True 3D-feeling navigation and interactions", icon: "✨", gradient: "from-blue-500/30 to-cyan-500/30" },
+            ].map((card, i) => (
+              <div key={i} className="relative group cursor-pointer">
+                <div className={`absolute inset-0 bg-gradient-to-r ${card.gradient} rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300`}></div>
+                <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/10 p-8 group-hover:scale-105 group-hover:rotate-1 transition-all duration-300">
+                  <div className="text-6xl mb-4 text-center">{card.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-2 text-center">{card.title}</h3>
+                  <p className="text-white/70 text-sm text-center">{card.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Advanced Features Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8">
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+                <Zap className="mr-3 w-8 h-8 text-yellow-400" />
+                Morphing Interfaces
+              </h2>
+              <div className="space-y-4">
+                {['Fluid Layouts', 'Dynamic Typography', 'Organic Shapes', 'Responsive Physics'].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-105 transition-all cursor-pointer">
+                    <div className={`w-4 h-4 rounded-full ${
+                      i % 4 === 0 ? 'bg-yellow-400' :
+                      i % 4 === 1 ? 'bg-pink-400' :
+                      i % 4 === 2 ? 'bg-cyan-400' : 'bg-green-400'
+                    } animate-pulse`}></div>
+                    <span className="text-white font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8">
+              <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+                <Layers className="mr-3 w-8 h-8 text-cyan-400" />
+                Quantum UI Elements
+              </h2>
+              <div className="space-y-4">
+                <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white border-0 rounded-2xl p-4 transform hover:scale-105 hover:rotate-1 transition-all">
+                  Morph Button ⚡
+                </Button>
+                <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white border-0 rounded-2xl p-4 transform hover:scale-105 hover:-rotate-1 transition-all">
+                  Quantum State 🌊
+                </Button>
+                <Button className="w-full bg-gradient-to-r from-green-500 to-yellow-500 hover:from-yellow-500 hover:to-green-500 text-white border-0 rounded-2xl p-4 transform hover:scale-105 hover:rotate-1 transition-all">
+                  Reality Shift ✨
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Advanced Technology Stack */}
+          <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 backdrop-blur-xl border border-white/20 rounded-3xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
+              <Cpu className="mr-3 w-8 h-8 text-purple-400" />
+              Advanced Technology Stack
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {[
+                { title: 'Framer Motion', desc: 'Spring physics & morphing', icon: '🎭' },
+                { title: 'React Three Fiber', desc: '3D scene integration', icon: '🎯' },
+                { title: 'Interactive Audio', desc: 'Sound feedback system', icon: '🔊' },
+                { title: 'Spatial Design', desc: '3D perspective transforms', icon: '🌟' },
+              ].map((tech, i) => (
+                <div key={i} className="text-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 hover:scale-105 hover:rotate-1 transition-all transform cursor-pointer">
+                  <div className="text-3xl mb-2">{tech.icon}</div>
+                  <h4 className="text-lg font-bold text-white mb-2">{tech.title}</h4>
+                  <p className="text-white/70 text-sm">{tech.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-8 text-center">
+              <Button className="px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium shadow-lg shadow-purple-500/20 transform hover:scale-105 transition-all">
+                <Terminal className="mr-2 w-5 h-5" />
+                View Source Code
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
+  // Quantum UI Design - Original Morphing Interface Design
+  const QuantumUIDesign = () => (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 overflow-hidden relative">
       {isClient && (
         <div className="absolute inset-0">
@@ -2165,10 +2412,13 @@ export default function DesignBookPerfect() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-cyan-400 mb-4 transform hover:scale-110 transition-transform">
-            EXPERIMENTAL
+            QUANTUM UI
           </h1>
-          <p className="text-2xl text-white/80">Breaking Boundaries • Pushing Limits</p>
-          <p className="text-lg text-white/60">2020s - Future</p>
+          <p className="text-2xl text-white/80">Reality Shifting • Multiple States</p>
+          <p className="text-lg text-white/60">2023 - Present</p>
+          <div className="mt-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 inline-block">
+            <p className="text-sm text-white/80 font-medium">Created by <span className="text-yellow-400 font-bold">Organica AI Solutions</span></p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -2176,7 +2426,7 @@ export default function DesignBookPerfect() {
             <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 transform hover:rotate-1 transition-transform">
               <h2 className="text-3xl font-bold text-white mb-6">Morphing Interfaces</h2>
               <div className="space-y-4">
-                {['Fluid Layouts', 'Dynamic Typography', 'Organic Shapes', 'Responsive Physics'].map((item, i) => (
+                {['Quantum States', 'Reality Shifting', 'Probabilistic UI', 'Neural Patterns'].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl border border-white/20 hover:bg-white/20 transition-all">
                     <div className={`w-4 h-4 rounded-full ${
                       i % 4 === 0 ? 'bg-yellow-400' :
@@ -2211,13 +2461,13 @@ export default function DesignBookPerfect() {
               <h2 className="text-2xl font-bold text-white mb-6">Quantum UI Elements</h2>
               <div className="space-y-4">
                 <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white border-0 rounded-2xl p-4 transform hover:scale-105 transition-all">
-                  Morph Button
+                  Superposition Button
                 </Button>
                 <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white border-0 rounded-2xl p-4 transform hover:scale-105 transition-all">
-                  Quantum State
+                  Entangled State
                 </Button>
                 <Button className="w-full bg-gradient-to-r from-green-500 to-yellow-500 hover:from-yellow-500 hover:to-green-500 text-white border-0 rounded-2xl p-4 transform hover:scale-105 transition-all">
-                  Reality Shift
+                  Wave Collapse
                 </Button>
               </div>
             </div>
@@ -2323,6 +2573,8 @@ export default function DesignBookPerfect() {
             return <CyberpunkDesign />
           case "Experimental Design":
             return <ExperimentalDesign />
+          case "Quantum UI":
+            return <QuantumUIDesign />
           case "Liquid Glass":
             return <LiquidGlassDesign />
           default:
