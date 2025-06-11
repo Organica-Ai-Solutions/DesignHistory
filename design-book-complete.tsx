@@ -543,7 +543,7 @@ export default function DesignBookComplete() {
     }
   }
 
-  const goToPage = (pageIndex) => {
+  const goToPage = (pageIndex: number) => {
     setCurrentPage(pageIndex)
     setShowTableOfContents(false)
   }
