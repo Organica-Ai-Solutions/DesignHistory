@@ -526,7 +526,7 @@ const historyData = {
 export default function DesignBookComplete() {
   const [currentPage, setCurrentPage] = useState(0)
   const [showTableOfContents, setShowTableOfContents] = useState(false)
-  const [bookmarkPage, setBookmarkPage] = useState(null)
+  const [bookmarkPage, setBookmarkPage] = useState<number | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
   const totalPages = bookPages.length
