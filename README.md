@@ -10,7 +10,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen?style=for-the-badge&logo=github&logoColor=white)](https://pages.github.com/)
 
-[🚀 **Live Demo**](https://organica-ai-solutions.github.io/frutiger-aero-design/) • [📖 **Documentation**](#features) • [🎯 **Kindle Edition**](#amazon-kindle)
+[🚀 **Live Demo**](https://organica-ai-solutions.github.io/DesignHistory/) • [📖 **Documentation**](#features) • [🎯 **Kindle Edition**](#amazon-kindle)
 
 ---
 
@@ -95,10 +95,10 @@ export default function DesignBook() {
 
 ```bash
 # Clone the repository
-git clone https://github.com/organica-ai-solutions/frutiger-aero-design.git
+git clone https://github.com/Organica-Ai-Solutions/DesignHistory.git
 
 # Navigate to project
-cd frutiger-aero-design
+cd DesignHistory
 
 # Install dependencies
 npm install
@@ -185,10 +185,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📊 Project Stats
 
-![GitHub stars](https://img.shields.io/github/stars/organica-ai-solutions/frutiger-aero-design?style=social)
-![GitHub forks](https://img.shields.io/github/forks/organica-ai-solutions/frutiger-aero-design?style=social)
-![GitHub issues](https://img.shields.io/github/issues/organica-ai-solutions/frutiger-aero-design)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/organica-ai-solutions/frutiger-aero-design)
+![GitHub stars](https://img.shields.io/github/stars/Organica-Ai-Solutions/DesignHistory?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Organica-Ai-Solutions/DesignHistory?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Organica-Ai-Solutions/DesignHistory)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Organica-Ai-Solutions/DesignHistory)
 
 **Total Design Movements**: 20 | **Years Covered**: 106+ | **Interactive Pages**: 47 | **Historical Accuracy**: ✅
 </div> 
