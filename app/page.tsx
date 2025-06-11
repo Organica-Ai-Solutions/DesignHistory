@@ -1,7 +1,7 @@
 "use client"
 
-import DesignBookPerfect from "../design-book-perfect"
+import DesignBookComplete from "../design-book-complete"
 
 export default function Page() {
-  return <DesignBookPerfect />
+  return <DesignBookComplete />
 }
