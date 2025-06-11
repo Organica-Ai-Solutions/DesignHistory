@@ -2381,11 +2381,17 @@ export default function DesignBookComplete() {
             onClick={prevPage}
             disabled={currentPage === 0}
             className="bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-full w-10 h-10 p-0 disabled:opacity-50"
+            aria-label="Previous page"
+            title="Go to previous page"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
           </Button>
 
-          <div className="text-gray-700 text-sm font-medium min-w-20 text-center">
+          <div 
+            className="text-gray-700 text-sm font-medium min-w-20 text-center"
+            aria-label={`Page ${currentPage + 1} of ${totalPages}`}
+            role="status"
+          >
             {currentPage + 1} / {totalPages}
           </div>
 
@@ -2393,8 +2399,10 @@ export default function DesignBookComplete() {
             onClick={nextPage}
             disabled={currentPage === totalPages - 1}
             className="bg-gray-100 hover:bg-gray-200 text-gray-700 border-0 rounded-full w-10 h-10 p-0 disabled:opacity-50"
+            aria-label="Next page"
+            title="Go to next page"
           >
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Button>
         </div>
       </div>
@@ -2405,23 +2413,52 @@ export default function DesignBookComplete() {
           <Button
             onClick={() => setShowTableOfContents(!showTableOfContents)}
             className="bg-white/90 hover:bg-white text-gray-700 border border-gray-200 rounded-full w-12 h-12 p-0"
+            aria-label={showTableOfContents ? "Close table of contents" : "Open table of contents"}
+            title={showTableOfContents ? "Close table of contents" : "Open table of contents"}
           >
-            <Menu className="w-4 h-4" />
+            <Menu className="w-4 h-4" aria-hidden="true" />
           </Button>
 
           <Button
             onClick={() => setBookmarkPage(currentPage)}
             className="bg-white/90 hover:bg-white text-gray-700 border border-gray-200 rounded-full w-12 h-12 p-0"
+            aria-label={bookmarkPage === currentPage ? "Remove bookmark from current page" : "Bookmark current page"}
+            title={bookmarkPage === currentPage ? "Remove bookmark from current page" : "Bookmark current page"}
           >
-            <BookOpen className={`w-4 h-4 ${bookmarkPage === currentPage ? "fill-current text-blue-500" : ""}`} />
+            <BookOpen className={`w-4 h-4 ${bookmarkPage === currentPage ? "fill-current text-blue-500" : ""}`} aria-hidden="true" />
           </Button>
 
-          <Button className="bg-white/90 hover:bg-white text-gray-700 border border-gray-200 rounded-full w-12 h-12 p-0">
-            <ShareIcon className="w-4 h-4" />
+          <Button 
+            className="bg-white/90 hover:bg-white text-gray-700 border border-gray-200 rounded-full w-12 h-12 p-0"
+            aria-label="Share this design book"
+            title="Share this design book"
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({
+                  title: 'The Visual Evolution - Interactive Design History Book',
+                  text: 'Explore 106+ years of design history with interactive showcases',
+                  url: window.location.href,
+                });
+              } else {
+                navigator.clipboard.writeText(window.location.href);
+              }
+            }}
+          >
+            <ShareIcon className="w-4 h-4" aria-hidden="true" />
           </Button>
 
-          <Button className="bg-white/90 hover:bg-white text-gray-700 border border-gray-200 rounded-full w-12 h-12 p-0">
-            <DownloadIcon className="w-4 h-4" />
+          <Button 
+            className="bg-white/90 hover:bg-white text-gray-700 border border-gray-200 rounded-full w-12 h-12 p-0"
+            aria-label="Download design book information"
+            title="Download design book information"
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = 'https://organicaai.com';
+              link.target = '_blank';
+              link.click();
+            }}
+          >
+            <DownloadIcon className="w-4 h-4" aria-hidden="true" />
           </Button>
         </div>
       </div>

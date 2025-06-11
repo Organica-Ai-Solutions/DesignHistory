@@ -1,0 +1,40 @@
+{
+  "name": "The Visual Evolution - Interactive Design History Book",
+  "short_name": "Visual Evolution",
+  "description": "Explore 106+ years of design history with interactive showcases of Bauhaus, Memphis, Cyberpunk, Liquid Glass, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "categories": ["education", "design", "books", "reference"],
+  "lang": "en",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

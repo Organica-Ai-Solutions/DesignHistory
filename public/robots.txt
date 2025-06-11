@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://organica-ai-solutions.github.io/DesignHistory/sitemap.xml 
