@@ -136,10 +136,6 @@ const historyData = {
     ],
     philosophy: "Form follows function. The Bauhaus sought to unite art, craft, and industrial production, believing that good design should be accessible to all social classes.",
     context: "Post-WWI Germany was rebuilding, and there was a need for affordable, functional design. The industrial revolution demanded new approaches to mass production.",
-    philosophy:
-      "Form follows function. The Bauhaus sought to unite art, craft, and industrial production, believing that good design should be accessible to all social classes.",
-    context:
-      "Post-WWI Germany was rebuilding, and there was a need for affordable, functional design. The industrial revolution demanded new approaches to mass production.",
     impact:
       "Bauhaus principles became the foundation of modern design education and influenced architecture, furniture, typography, and product design worldwide.",
     notableWorks: [
