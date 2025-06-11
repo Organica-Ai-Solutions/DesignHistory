@@ -74,7 +74,7 @@ const bookData = {
 export default function DesignBook() {
   const [currentPage, setCurrentPage] = useState(0)
   const [showTableOfContents, setShowTableOfContents] = useState(false)
-  const [bookmarkPage, setBookmarkPage] = useState(null)
+  const [bookmarkPage, setBookmarkPage] = useState<number | null>(null)
 
   const totalPages = bookData.chapters.reduce((sum, chapter) => sum + chapter.pages, 0)
 
