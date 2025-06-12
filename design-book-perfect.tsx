@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { trackEvent } from "@/components/Analytics"
 import {
   BookOpen,
   Menu,
@@ -450,13 +451,27 @@ export default function DesignBookPerfect() {
 
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
-      setCurrentPage(currentPage + 1)
+      const newPage = currentPage + 1
+      setCurrentPage(newPage)
+      trackEvent('page_navigation', {
+        action: 'next',
+        from_page: currentPage + 1,
+        to_page: newPage + 1,
+        page_title: getCurrentPageData().title || getCurrentPageData().style
+      })
     }
   }
 
   const prevPage = () => {
     if (currentPage > 0) {
-      setCurrentPage(currentPage - 1)
+      const newPage = currentPage - 1
+      setCurrentPage(newPage)
+      trackEvent('page_navigation', {
+        action: 'previous',
+        from_page: currentPage + 1,
+        to_page: newPage + 1,
+        page_title: getCurrentPageData().title || getCurrentPageData().style
+      })
     }
   }
 
@@ -2565,7 +2580,14 @@ export default function DesignBookPerfect() {
           </Button>
 
           <Button
-            onClick={() => setBookmarkPage(currentPage)}
+            onClick={() => {
+              setBookmarkPage(currentPage)
+              trackEvent('bookmark_page', {
+                page_number: currentPage + 1,
+                page_title: getCurrentPageData().title || getCurrentPageData().style,
+                page_type: getCurrentPageData().type
+              })
+            }}
             className="bg-white/95 backdrop-blur-xl hover:bg-white text-gray-700 border border-gray-200/50 rounded-full w-12 h-12 sm:w-14 sm:h-14 p-0 transition-all duration-300 shadow-xl"
           >
             <Bookmark className={`w-4 h-4 sm:w-5 sm:h-5 ${bookmarkPage === currentPage ? "fill-current text-blue-500" : ""}`} />
